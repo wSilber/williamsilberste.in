@@ -1,0 +1,260 @@
+body {
+    background-color: #000;
+}
+
+
+/* Home Section */
+canvas {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -200;
+}
+
+.header-text {
+    margin: 0;
+    font-size: 66px;
+    line-height: 72px;
+    color: white;
+    font-family: "Patua One",cursive;
+}
+
+#hf-1 {
+    color: #a8a8a8;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+    .header-text {
+
+        font-size: 50px;
+        line-height: 72px;
+
+    }
+    
+    #hf-1 {
+
+        font-size: 16px;
+        font-weight: 550;
+    }
+}
+
+@media only screen and (max-width: 547px) {
+    .header-text {
+        font-size: 32px;
+        line-height: 50px;
+    }
+    
+    #hf-1 {
+        font-size: 16px;
+        font-weight: 550;
+    }
+}
+
+#scroll-text {
+    color: white;
+    text-orientation: mixed;
+    writing-mode: vertical-lr;
+    position:absolute;
+    bottom: 10px;
+    font-size: 16px;
+    animation-name: scroll-text;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes scroll-text {
+    0%     {bottom: 10px;}
+    50%    {bottom: 30px;}
+    100%   {bottom: 10px;}
+}
+
+/* About Section */
+
+#about {
+    height: 100vh; 
+    background-color: #141414;
+    box-shadow: 0 0 5px 6px rgb(0 0 0 / 60%);
+}
+
+.about-double {
+    background-color: #313131;
+    height: 80vh;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 60%);
+}
+
+.title {
+    font-family: "Patua One",cursive;
+    color: #fff;
+    font-size: 66px;
+    margin: 0;
+    line-height: 72px;  
+}
+
+.about-text {
+    font-size: 18px;
+    color: #bebebe;
+}
+
+#about-pic {
+    background: url('../res/me.jpg');
+    background-position: 50%;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    #about {
+        height: 180vh; 
+    }
+}
+
+.break {
+    height: 20vh;
+}
+
+
+/* Education Section */
+
+#education {
+    background-color: #141414;
+    height: 100vh;
+    box-shadow: 0 0 5px 6px rgb(0 0 0 / 60%);
+}
+
+#education-title {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#education-container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.education-element {
+    background-color: #313131;
+    border-radius: 10px;
+    height: 40%;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 60%);
+}
+
+.education-text {
+    font-size: 35px;
+    font-weight: 900;
+    color: #bebebe;
+}
+
+.education-text-m {
+    font-size: 25px;
+    font-weight: 600;
+    color: #666;
+}
+
+.education-b {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#washU-logo {
+    background: url('../res/washULogo.png');
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#greeley-logo {
+    background: url('../res/greeleyLogo.png');
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 991px) {
+    .education-p {
+        width: 50% !important;
+    }
+
+    .education-text {
+        font-size: 25px;
+    }
+    
+    .education-text-m {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .education-text {
+        font-size: 20px;
+    }
+    
+    .education-text-m {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .education-text {
+        font-size: 16px;
+    }
+    
+    .education-text-m {
+        font-size: 13px;
+    }
+}
+
+/* Projects section */
+#projects {
+    background-color: #141414;
+    height: 100vh;
+    box-shadow: 0 0 5px 6px rgb(0 0 0 / 60%);
+}
+
+#projects-title {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.projects-title {
+    font-size: 22px;
+    margin: 0;
+}
+
+.projects-description {
+    font-size: 20px;
+    color: #a8a8a8;
+    margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    #projects {
+        height: 60vh;
+    }
+    .projects-title {
+        font-size: 18px;
+        margin: 0;
+    }
+    
+    .projects-description {
+        display: none;
+    }
+}
+
+/* Contact Section */
+#contact {
+    background-color: #141414;
+    height: 80vh;
+    box-shadow: 0 0 5px 6px rgb(0 0 0 / 60%);
+}

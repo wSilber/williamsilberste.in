@@ -1,5 +1,5 @@
-import * as THREE from "../lib/three.module.js"
-import * as BufferGeometryUtils from "../lib/BufferGeometryUtils.js"
+// import * as THREE from "../lib/three.module.js"
+// import * as BufferGeometryUtils from "../lib/BufferGeometryUtils.js"
 
 let   scene
 let   camera
@@ -48,8 +48,6 @@ function init() {
 
     vertices = []
     scales   = []
-
-    console.log(rows + " : " + cols)
 
     for(let i = 0; i < rows; i++) {
         for(let j = 0; j < cols; j++) {
@@ -114,7 +112,7 @@ function initBox(scene) {
     box_geometry.deleteAttribute('normal')
     box_geometry.deleteAttribute('uv')
 
-    box_geometry = BufferGeometryUtils.mergeVertices(box_geometry)
+    // box_geometry = BufferGeometryUtils.mergeVertices(box_geometry)
 
     const position_attribute = box_geometry.getAttribute('position')
 
@@ -146,8 +144,6 @@ function initBox(scene) {
     box_particles = new THREE.Points(geometry, material)
 
     scene.add(box_particles)
-
-    console.log(box_particles)
 }
 
 function initWave(scene) {
@@ -185,7 +181,7 @@ function initWave(scene) {
 
 function animate(time) {
     requestAnimationFrame(animate)
-        renderAnimation(time)
+    renderAnimation(time)
 }
 
 function renderAnimation(time) {
@@ -236,7 +232,7 @@ function renderAnimation(time) {
                 positions[i+1] += (change_speed / distance) * deltaY
                 positions[i+2] += (change_speed / distance) * deltaZ
             } else {
-                positions[i] = endPosX
+                positions[i]   = endPosX
                 positions[i+1] = endPosY
                 positions[i+2] = endPosZ
             }
