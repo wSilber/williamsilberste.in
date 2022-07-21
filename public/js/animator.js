@@ -1,5 +1,4 @@
-// import * as THREE from "../lib/three.module.js"
-// import * as BufferGeometryUtils from "../lib/BufferGeometryUtils.js"
+import * as BufferGeometryUtils from "../lib/BufferGeometryUtils.js"
 
 let   scene
 let   camera
@@ -12,21 +11,23 @@ const rows             = 216
 const cols             = 216
 const particle_amount  = rows * cols
 const particleSize     = 5
-const max_change_speed = 30
+const max_change_speed = 10
 const change_delay     = 10000
 const amplitude        = 100
+let   current_shape    = 0
+let   change_speed     = 0
 
 let   vertices
 let   scales
 let   window_half_x
 let   window_half_y
 let   points
-let   current_shape
 let   box_particles
 let   wave_particles
-let   change_speed
+let   wave_particles2
 let   mouse_x
 let   mouse_y
+
 
 let animation_bg
 
@@ -35,6 +36,7 @@ function init() {
     window_half_y = window.innerHeight / 2
     mouse_x       = 0
     mouse_y       = 0
+    current_shape = 0
 
     scene    = new THREE.Scene()
     geometry = new THREE.BufferGeometry()
@@ -69,7 +71,7 @@ function init() {
     )
 
     camera.position.z = 150;
-    camera.position.y = 100;
+    camera.position.y = 1000;
 
     points = new THREE.Points(geometry, material)
 
@@ -89,15 +91,11 @@ function init() {
 
     initBox(scene)
     initWave(scene)
+    initWave2(scene)
     animate()
 
-
-
-
-    current_shape = 0
-
     setInterval(() => {
-        if(current_shape === 0) {
+        if(current_shape == 0) {
             current_shape = 1
         } else {
             current_shape = 0
@@ -107,12 +105,12 @@ function init() {
 }
 
 function initBox(scene) {
-    let box_geometry = new THREE.BoxGeometry( 1000, 1000, 1000, 80, 8, 8 );
+    let box_geometry = new THREE.BoxGeometry( 1000, 1000, 1000, 80, 80, 80 );
 
     box_geometry.deleteAttribute('normal')
     box_geometry.deleteAttribute('uv')
 
-    // box_geometry = BufferGeometryUtils.mergeVertices(box_geometry)
+    box_geometry = BufferGeometryUtils.mergeVertices(box_geometry)
 
     const position_attribute = box_geometry.getAttribute('position')
 
@@ -142,7 +140,6 @@ function initBox(scene) {
     })
 
     box_particles = new THREE.Points(geometry, material)
-
     scene.add(box_particles)
 }
 
@@ -171,29 +168,62 @@ function initWave(scene) {
         alphaTest: 0.5, 
         transparent: true, 
         color: 0x5b91b5, 
-        visible: true
+        visible: false
     });
 
     wave_particles = new THREE.Points( wave_geometry, wave_material )
 
+
     scene.add(wave_particles)
+}
+
+function initWave2(scene) {
+    const vertices = []
+    const scales    = []
+
+    for(let i = 0; i < rows; i++) {
+        for(let j = 0; j < cols; j++) {
+            vertices.push(i * distance - ( ( rows * distance ) / 2 )); // x
+			vertices.push(0); // y
+			vertices.push(j * distance - ( ( cols * distance ) / 2 )); // z
+            
+            scales.push(1)
+        }
+    }
+
+    const wave_geometry = new THREE.BufferGeometry()
+
+    wave_geometry.setAttribute('position', new THREE.Float32BufferAttribute( vertices, 3 ))
+    wave_geometry.setAttribute('size'    , new THREE.Float32BufferAttribute(scales, 1))
+
+    const wave_material = new THREE.PointsMaterial({ 
+        size: particleSize,
+        sizeAttenuation: true,  
+        alphaTest: 0.5, 
+        transparent: true, 
+        color: 0x5b91b5, 
+        visible: false
+    });
+
+    wave_particles2 = new THREE.Points( wave_geometry, wave_material )
+
+
+    scene.add(wave_particles2)
 }
 
 function animate(time) {
     requestAnimationFrame(animate)
+    if(time != undefined)
     renderAnimation(time)
 }
 
 function renderAnimation(time) {
 
-    if(wave_particles == undefined)
-        return
-
-
     const positions = points.geometry.attributes.position.array
     const scales    = points.geometry.attributes.size.array
 
     const wave_position = wave_particles.geometry.attributes.position.array
+    const wave_position2 = wave_particles2.geometry.attributes.position.array
     
     let i  = 0,
         j  = 0
@@ -201,24 +231,22 @@ function renderAnimation(time) {
     let endPosX
     let endPosY
     let endPosZ
-
-    current_shape = 0
     
     for(let ix = 0; ix < rows; ix++) {
         
         for(let jx = 0; jx < cols; jx++) {
             
             wave_position[i + 1 ] = Math.sin((time /1000 + ix) * .5) * 100 + Math.sin((time /1000 + jx) * .5) * 100
-
+            wave_position2[i + 1 ] = Math.tan((time / 50000 +ix) * .5) * 100 + Math.tan((time / 50000 +jx) * .5) * 100
+            
             if(current_shape == 0) {
                 endPosX = wave_particles.geometry.attributes.position.array[i]
                 endPosY = wave_particles.geometry.attributes.position.array[i+1]
                 endPosZ = wave_particles.geometry.attributes.position.array[i+2]
             } else {
-                console.log(current_shape)
-                endPosX = box_particles.geometry.attributes.position.array[i]
-                endPosY = box_particles.geometry.attributes.position.array[i+1]
-                endPosZ = box_particles.geometry.attributes.position.array[i+2]
+                endPosX = wave_particles2.geometry.attributes.position.array[i]
+                endPosY = wave_particles2.geometry.attributes.position.array[i+1]
+                endPosZ = wave_particles2.geometry.attributes.position.array[i+2]
             }
 
             let deltaX = endPosX - positions[i]
@@ -228,7 +256,7 @@ function renderAnimation(time) {
             let distance = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ))
 
             if(distance > change_speed) {
-                positions[i]   += (change_Speed / distance) * deltaX
+                positions[i]   += (change_speed / distance) * deltaX
                 positions[i+1] += (change_speed / distance) * deltaY
                 positions[i+2] += (change_speed / distance) * deltaZ
             } else {
@@ -238,7 +266,7 @@ function renderAnimation(time) {
             }
 
             scales[j] = 100
-            i += 3;
+            i        += 3;
 
         }
     }
@@ -246,10 +274,10 @@ function renderAnimation(time) {
     points.geometry.attributes.position.needsUpdate = true
     points.geometry.attributes.size.needsUpdate = true
 
-    points.rotation.y += 0.00005
+   // points.rotation.y += 0.00005
 
     camera.position.x += ( mouse_x - camera.position.x) * .00009
-    camera.position.y += (-mouse_y - camera.position.y) * .00009
+    //camera.position.y += (-mouse_y - camera.position.y) * .00009
 
     camera.lookAt(scene.position)
 
@@ -258,7 +286,7 @@ function renderAnimation(time) {
     if(change_speed < max_change_speed)
         change_speed++
 
-
+    
 }
 
 function onWindowResize() {
