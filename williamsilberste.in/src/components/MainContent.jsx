@@ -1,10 +1,6 @@
 import React from 'react';
 import {
-    Button,
     Box,
-    HStack,
-    Slide,
-    useDisclosure,
   } from '@chakra-ui/react'
 
 function MainComponent() {
@@ -19,12 +15,17 @@ function MainComponent() {
             backgroundPosition={'bottom'} 
             backgroundSize={'cover'}
             backgroundRepeat={'no-repeat'}
-            position={'absolute'}
             zIndex={'-1'}
         >
-
+          End of header image
         </Box>
-      {/* <div style={{height: '1000vh', backgroundColor: '#eee'}}>Test</div> */}
+        <Box
+          w={{ base: 'full' }}
+          backgroundColor={'gray.200'}
+          h={'1000vh'}
+        >
+          Start of Main Section
+        </Box>
     </>
   );
 }
