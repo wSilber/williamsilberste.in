@@ -65,9 +65,10 @@ function AboutSection({about_me_text}) {
   return (
     <>
     <Box 
-      borderRadius={'lg'} 
-      border={'1px'}
+      borderRadius={'2xl'} 
+      // border={'1px'}
       borderColor={'gray.700'} 
+      backgroundColor={'gray.100'}
       margin={'3'}
     >
       <Stack 
@@ -83,12 +84,27 @@ function AboutSection({about_me_text}) {
           src='/images/headshot.JPG'
           alt='William Silberstein'
         />
-    
+
         <Box w={'full'} whiteSpace={'normal'}>
           <Heading pb={'10'} whiteSpace={'normal'}>About Me</Heading>
-          <Text fontSize={'xl'}>
+          <Text fontSize={{base: 'md', md: 'xl'}}>
           {about_me_text['about_me_text']}
           </Text>
+          <br></br>
+          <Text fontSize={{base: 'md', md: 'xl'}}>
+          In addition to my interests in technology, I also have an interest in Music, Dogs, and Hockey.
+          </Text>
+          <br></br>
+          <Button 
+            backgroundColor={'gray.800'}
+            color={'gray.300'}
+            _hover={{
+              color: 'gray.50',
+              backgroundColor: 'gray.500'
+            }}
+          >
+            Contact
+          </Button>
         </Box>
         
 

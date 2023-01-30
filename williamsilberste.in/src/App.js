@@ -7,7 +7,12 @@ import MainComponent from './components/MainContent';
 // import WaveAnimation from './components/WaveAnimation';
 
 const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
-const about_me_text = 'I love to build things. Whether its building a lawn chair or creating a multi-platform application, I seek out the sense of accomplishment for creating useful products in everything I do. In addition, I have a passion for learning and self growth. Since my first introduction to coding as an 11 year old, I have dedicated myself to learning the world of programming. I am most experienced with the OOP languages such as Java and C++, but I also have tons of experience with languages such as Javascript and C. In addition to my interests as a programmer, I am interested in sports and music. I am a big fan of the New York Rangers and am a firm believer that next year will be their year.'
+const about_me_text = `
+
+    My name is William Silberstein and I am currently completing two degrees in Computer Engineering and Computer Science at Washington University in St. Louis.
+    I have a passion for building software, particularly in building backend systems and networking solutions.
+
+`
 
 function App() {
 
