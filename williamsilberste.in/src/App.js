@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useInViewport } from 'react-in-viewport';
+
 import NavBarTop from './components/NavBarTop'
 import NavBarSide from './components/NavBarSide'
 import MainComponent from './components/MainContent';
@@ -22,8 +23,8 @@ function App() {
       <NavBarTop nav_pages={nav_pages} toggle={inViewport}/>
       <NavBarSide nav_pages={nav_pages} toggle={!inViewport} />
       {/* <WaveAnimation /> */}
-      <div ref={ref} style={{position: 'absolute', zIndex: -10, height: '100vh', borderBottom: '1px solid black'}}>Test</div>
-      <MainComponent />
+      <div ref={ref} style={{position: 'absolute', zIndex: -10, height: '50vh', borderBottom: '1px solid black'}}>Test</div>
+      <MainComponent toggle={!inViewport} />
     </>
   );
 }
