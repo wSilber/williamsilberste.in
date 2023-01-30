@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
@@ -6,12 +6,9 @@ import {
   Button,
   Box,
   Link,
-  Show,
-  Slide,
   Spacer,
   Stack,
   Text,
-  useDisclosure,
   HStack,
   useMediaQuery
 } from '@chakra-ui/react'
@@ -22,23 +19,16 @@ function NavBarTop(props) {
 
     const [show, setShow] = useState(props.toggle)
     const [isMobile] = useMediaQuery("(min-width: 768px)")
-    const { getDisclosureProps, isOpen } = useDisclosure()
-
-    const toggle = props.toggle
-    
 
     const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
-
-    console.log(isOpen)
 
     return (
         <>
             <motion.div
-                {...getDisclosureProps()}
                 hidden={false}
-                initial={!toggle}
-                onAnimationStart={() => setShow(!toggle)}
-                onAnimationComplete={() => setShow(!isOpen)}
+                initial={!show}
+                onAnimationStart={() => setShow(!show)}
+                onAnimationComplete={() => setShow(!show)}
                 animate={{ width: props.toggle & isMobile ? '20vw' : '0'}}
                 style={{
                     overflow: 'hidden',

@@ -2,18 +2,10 @@ import React, { useState } from 'react';
 import {
     Box,
     Button,
-    Card,
-    CardBody,
-    CardFooter,
-    Collapse,
-    Container,
-    Divider,
     Heading,
     Image,
-
     Stack,
     Text,
-    useDisclosure,
     useMediaQuery
   } from '@chakra-ui/react'
 
@@ -24,22 +16,16 @@ function MainComponent(props) {
     const toggle = props.toggle
     const about_me_text = props.about_me_text
 
-    console.log(about_me_text)
-
     const [show, setShow] = useState(props.toggle)
     const [isMobile] = useMediaQuery("(min-width: 768px)")
-
-    const { getDisclosureProps, isOpen } = useDisclosure()
-
 
   return (
     <>
         <motion.div
-        {...getDisclosureProps()}
         hidden={false}
-        initial={toggle}
-        onAnimationStart={() => setShow(toggle)}
-        onAnimationComplete={() => setShow(!isOpen)}
+        initial={show}
+        onAnimationStart={() => setShow(show)}
+        onAnimationComplete={() => setShow(!show)}
         delay={'1s'}
         animate={{ width: toggle & isMobile ? '80vw' : '100vw'}}
         style={{
@@ -60,15 +46,13 @@ function MainComponent(props) {
 
 function AboutSection({about_me_text}) {
 
-  console.log()
-
   return (
     <>
     <Box 
       borderRadius={'2xl'} 
       // border={'1px'}
       borderColor={'gray.700'} 
-      backgroundColor={'gray.100'}
+      backgroundColor={'gray.0'}
       margin={'3'}
     >
       <Stack 
