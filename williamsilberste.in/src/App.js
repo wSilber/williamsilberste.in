@@ -7,12 +7,6 @@ import MainComponent from './components/MainContent';
 // import WaveAnimation from './components/WaveAnimation';
 
 const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
-const about_me_text = `
-
-    My name is William Silberstein and I am currently completing two degrees in Computer Engineering and Computer Science at Washington University in St. Louis.
-    I have a passion for building software, particularly in building backend systems and networking solutions.
-
-`
 
 function App() {
 
@@ -30,7 +24,7 @@ function App() {
       <NavBarSide nav_pages={nav_pages} toggle={!inViewport} />
       {/* <WaveAnimation /> */}
       <div ref={ref} style={{position: 'absolute', zIndex: -10, height: '50vh', borderBottom: '1px solid black'}}>Test</div>
-      <MainComponent toggle={!inViewport} about_me_text={about_me_text}/>
+      <MainComponent toggle={!inViewport}/>
     </>
   );
 }

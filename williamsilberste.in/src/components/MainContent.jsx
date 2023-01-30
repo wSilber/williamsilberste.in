@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import {
     Box,
-    Button,
-    Heading,
-    Image,
-    Stack,
-    Text,
     useMediaQuery
   } from '@chakra-ui/react'
 
-  import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
+
+import AboutSection from './AboutSection'
+import ExperienceSection from './ExperienceSection';
 
 function MainComponent(props) {
 
     const toggle = props.toggle
-    const about_me_text = props.about_me_text
 
     const [show, setShow] = useState(props.toggle)
     const [isMobile] = useMediaQuery("(min-width: 768px)")
@@ -37,68 +34,14 @@ function MainComponent(props) {
           zIndex: '-1'
         }}
       >
-        <InsideContent about_me_text={about_me_text}/>
+        <InsideContent />
       </motion.div>
     </>
     
   );
 }
 
-function AboutSection({about_me_text}) {
-
-  return (
-    <>
-    <Box 
-      borderRadius={'2xl'} 
-      // border={'1px'}
-      borderColor={'gray.700'} 
-      backgroundColor={'gray.0'}
-      margin={'3'}
-    >
-      <Stack 
-        direction={['column', 'row']} 
-        w={'full'} 
-        p={'4'} 
-        maxW={'full'}
-        spacing={'10'}
-      >
-        <Image
-          borderRadius={'full'}
-          height={'md'}
-          src='/images/headshot.JPG'
-          alt='William Silberstein'
-        />
-
-        <Box w={'full'} whiteSpace={'normal'}>
-          <Heading pb={'10'} whiteSpace={'normal'}>About Me</Heading>
-          <Text fontSize={{base: 'md', md: 'xl'}}>
-          {about_me_text['about_me_text']}
-          </Text>
-          <br></br>
-          <Text fontSize={{base: 'md', md: 'xl'}}>
-          In addition to my interests in technology, I also have an interest in Music, Dogs, and Hockey.
-          </Text>
-          <br></br>
-          <Button 
-            backgroundColor={'gray.800'}
-            color={'gray.300'}
-            _hover={{
-              color: 'gray.50',
-              backgroundColor: 'gray.500'
-            }}
-          >
-            Contact
-          </Button>
-        </Box>
-        
-
-      </Stack>
-    </Box>
-    </>
-  )
-}
-
-function InsideContent(about_me_text) {
+function InsideContent() {
     return (
       <>
         <Box 
@@ -111,7 +54,8 @@ function InsideContent(about_me_text) {
           zIndex={'-1'}
         >
         </Box>
-        <AboutSection about_me_text={about_me_text}/>
+        <AboutSection />
+        <ExperienceSection />
         <Box h={'200vh'}></Box>
       </>
       
