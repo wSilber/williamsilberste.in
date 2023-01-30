@@ -1,15 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Box,
+  Center,
+  CloseButton,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Grid,
+  GridItem,
   HStack,
+  Link,
   Show,
   Slide,
+  Spacer,
+  Stack,
+  Text,
   useDisclosure,
   IconButton,
 } from '@chakra-ui/react'
 
 import { FiMenu } from 'react-icons/fi';
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
 
 function NavBarTop(props) {
 
@@ -23,8 +37,6 @@ function NavBarTop(props) {
         else
             onClose()
     })
-
-    console.log(props)
 
     return (
         <>
@@ -43,12 +55,12 @@ function NavBarTop(props) {
 
 function DesktopNav({nav_pages}) {
     return (
-        <Box p={2} backgroundColor={'gray.800'} boxShadow={'0px 2px 10px 1px'}>
+        <Box p={2}  boxShadow={'0px 2px 10px 1px'} bgGradient='linear(to-r, gray.800, gray.700)'>
             <HStack direction={'column'} justifyContent={'center'}>
             {nav_pages.map(page => (
                 <Button
                     key={page}
-                    backgroundColor={'gray.800'}
+                    backgroundColor={'inherit'}
                     borderRadius={'none'}
                     color={'gray.300'}
                     fontSize={'md'}
@@ -68,6 +80,7 @@ function DesktopNav({nav_pages}) {
 function MobileNav({nav_pages}) {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [placement]   = useState('top')
 
     return (
         <Box p={2} backgroundColor={'gray.800'} boxShadow={'0px 2px 10px 1px'}>
@@ -77,10 +90,136 @@ function MobileNav({nav_pages}) {
                 aria-label={'open menu'}
                 backgroundColor={'gray.200'}
                 _hover={{
-                    backgroundColor: 'gray.500',
+                    backgroundColor: 'gray.800',
+                    color: 'gray.100'
                 }}
                 icon={<FiMenu />}
             />
+            
+            <Drawer onClose={onClose} isOpen={isOpen} placement={placement}>
+                <DrawerOverlay />
+                <DrawerContent w={'full'} h={'100vh'}>
+                <DrawerHeader 
+                    backgroundColor={'gray.800'}
+                >
+                    <Box 
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignContent={'center'}
+                        flexDirection={'row'}
+                        textAlign={'center'}
+                    >
+                        <Grid templateColumns={'repeat(3, 1fr)'} w={'full'} >
+                            <GridItem w='20%'>
+                                <Center>
+                                <CloseButton backgroundColor={'gray.50'} onClick={onClose} float={'left'} size={'lg'}/>
+                                </Center>
+                                
+                            </GridItem>
+                            <GridItem w='100%'>
+                                <Box
+                                w={'full'}
+                                display={'flex'}
+                                justifyContent={'center'}
+                                alignContent={'center'}
+                                flexDirection={'column'}
+                                textAlign={'center'}
+
+                                >   
+                                <Text   
+                                    backgroundColor={'gray.800'}
+                                    color={'gray.50'}
+                                    fontSize={'2xl'}
+                                    fontWeight={'semibold'}
+                                    mt={'5'}
+                                >
+                                    William Silberstein 
+                                </Text>
+                                <Text
+                                    backgroundColor={'gray.800'}
+                                    color={'gray.50'}
+                                    as='i'
+                                    mb={'50'}
+                                    fontSize={'md'}
+                                >
+                                    Personal Website
+                                </Text>
+                            </Box> 
+                            </GridItem>
+                            <GridItem w='20%'/>
+                        </Grid>
+                    </Box>
+                    
+                </DrawerHeader>
+                <DrawerBody backgroundColor={'gray.800'}>
+                <Box
+                    backgroundColor={'gray.800'}
+                    w={{ base: 'full', md: 60 }}
+                    h={'full'}
+                    justifyContent={'center'}
+                >
+                    <Stack 
+                        direction={'column'} 
+                        alignItems={'center'} 
+                        justifyContent={'center'}
+                        h={'full'}
+                    >
+                        
+                    {nav_pages.map(page => (
+                        <Button
+                            key={page}
+                            backgroundColor={'gray.800'}
+                            borderRadius={'none'}
+                            color={'gray.300'}
+                            fontSize={'xl'}
+                            width={'50%'} 
+                            _hover={{
+                                color: 'gray.50',
+                                borderBottom: '2px',
+                                borderBottomColor: 'gray.50'
+                            }}>
+                            {page}
+                        </Button>
+                    ))}
+                    <Spacer />
+                        <HStack justifyContent={'center'}>
+                            <Link 
+                                href='https://www.linkedin.com/in/william-silberstein/'
+                                isExternal
+                            >
+                                <FaLinkedin 
+                                    size={'70'} 
+                                    color={'white'}
+                                    cursor={'pointer'}
+                                />
+                            </Link>
+                            <Link 
+                                href='https://github.com/wSilber'
+                                isExternal
+                            >
+                                <FaGithub 
+                                    size={'70'} 
+                                    color={'white'}
+                                    cursor={'pointer'}
+                                />
+                            </Link>
+                        </HStack>
+                        <Text
+                            backgroundColor={'gray.800'}
+                            color={'gray.50'}
+                            as='i'
+                            pb={'50'}
+                            fontSize={'lg'}
+                        >
+                            wsilberstein@wustl.edu
+                        </Text>
+                    </Stack>
+
+                    
+                </Box>
+                </DrawerBody>
+                </DrawerContent>
+            </Drawer>
                 
             Mobile Nav
         </Box>

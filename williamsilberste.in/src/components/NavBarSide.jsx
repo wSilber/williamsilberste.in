@@ -6,6 +6,7 @@ import {
   Button,
   Box,
   Link,
+  Show,
   Slide,
   Spacer,
   Stack,
@@ -27,111 +28,112 @@ function NavBarTop(props) {
             onClose()
     })
 
-    console.log(props)
-
     return (
         <>
-        <Slide direction='left' in={isOpen}>
-            <Box 
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                h={'full'}
-            >
-                <Box
-                    backgroundColor={'gray.800'}
-                    w={{ base: 'full', md: 60 }}
-                    h={'full'}
+        <Show above={'md'}>
+            <Slide direction='left' in={isOpen}>
+                <Box 
+                    display={'flex'}
+                    flexDirection={'column'}
                     justifyContent={'center'}
+                    h={'full'}
                 >
-                    <Stack 
-                        direction={'column'} 
-                        alignItems={'center'} 
-                        justifyContent={'center'}
+                    <Box
+                        backgroundColor={'gray.800'}
+                        w={'20%'}
                         h={'full'}
-                    >
-                        <Box
-                        display={'flex'}
                         justifyContent={'center'}
-                        alignContent={'center'}
-                        flexDirection={'column'}
-                        textAlign={'center'}
-
+                    >
+                        <Stack 
+                            direction={'column'} 
+                            alignItems={'center'} 
+                            justifyContent={'center'}
+                            h={'full'}
                         >
-                            <Text   
-                                backgroundColor={'gray.800'}
-                                color={'gray.50'}
-                                fontSize={'lg'}
-                                fontWeight={'semibold'}
-                                mt={'5'}
+                            <Box
+                            display={'flex'}
+                            justifyContent={'center'}
+                            alignContent={'center'}
+                            flexDirection={'column'}
+                            textAlign={'center'}
+
                             >
-                                William Silberstein 
-                            </Text>
+                                <Text   
+                                    backgroundColor={'gray.800'}
+                                    color={'gray.50'}
+                                    fontSize={'lg'}
+                                    fontWeight={'semibold'}
+                                    mt={'5'}
+                                >
+                                    William Silberstein 
+                                </Text>
+                                <Text
+                                    backgroundColor={'gray.800'}
+                                    color={'gray.50'}
+                                    as='i'
+                                    mb={'50'}
+                                    fontSize={'sm'}
+                                >
+                                    Personal Website
+                                </Text>
+                            </Box>
+                        {nav_pages.map(page => (
+                            <Button
+                                key={page}
+                                backgroundColor={'gray.800'}
+                                borderRadius={'none'}
+                                color={'gray.300'}
+                                fontSize={'md'}
+                                width={'50%'} 
+                                _hover={{
+                                    color: 'gray.50',
+                                    borderBottom: '2px',
+                                    borderBottomColor: 'gray.50'
+                                }}>
+                                {page}
+                            </Button>
+                        ))}
+                        <Spacer />
+                            <HStack justifyContent={'center'}>
+                                <Link 
+                                    href='https://www.linkedin.com/in/william-silberstein/'
+                                    isExternal
+                                >
+                                    <FaLinkedin 
+                                        size={'40'} 
+                                        color={'white'}
+                                        cursor={'pointer'}
+                                    />
+                                </Link>
+                                <Link 
+                                    href='https://github.com/wSilber'
+                                    isExternal
+                                >
+                                    <FaGithub 
+                                        size={'40'} 
+                                        color={'white'}
+                                        cursor={'pointer'}
+                                    />
+                                </Link>
+                            </HStack>
                             <Text
                                 backgroundColor={'gray.800'}
                                 color={'gray.50'}
                                 as='i'
-                                mb={'50'}
+                                pb={'50'}
                                 fontSize={'sm'}
                             >
-                                Personal Website
+                                wsilberstein@wustl.edu
                             </Text>
-                        </Box>
-                    {nav_pages.map(page => (
-                        <Button
-                            key={page}
-                            backgroundColor={'gray.800'}
-                            borderRadius={'none'}
-                            color={'gray.300'}
-                            fontSize={'md'}
-                            width={'50%'} 
-                            _hover={{
-                                color: 'gray.50',
-                                borderBottom: '2px',
-                                borderBottomColor: 'gray.50'
-                            }}>
-                            {page}
-                        </Button>
-                    ))}
-                    <Spacer />
-                        <HStack justifyContent={'center'}>
-                            <Link 
-                                href='https://www.linkedin.com/in/william-silberstein/'
-                                isExternal
-                            >
-                                <FaLinkedin 
-                                    size={'40'} 
-                                    color={'white'}
-                                    cursor={'pointer'}
-                                />
-                            </Link>
-                            <Link 
-                                href='https://github.com/wSilber'
-                                isExternal
-                            >
-                                <FaGithub 
-                                    size={'40'} 
-                                    color={'white'}
-                                    cursor={'pointer'}
-                                />
-                            </Link>
-                        </HStack>
-                        <Text
-                            backgroundColor={'gray.800'}
-                            color={'gray.50'}
-                            as='i'
-                            pb={'50'}
-                            fontSize={'sm'}
-                        >
-                            wsilberstein@wustl.edu
-                        </Text>
-                    </Stack>
+                        </Stack>
 
-                    
+                        
+                    </Box>
                 </Box>
-            </Box>
-            
-        </Slide>
+                
+            </Slide>
+        </Show>
+        
         </>
     );
 }
