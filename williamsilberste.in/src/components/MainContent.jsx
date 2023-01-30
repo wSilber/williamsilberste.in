@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import {
     Box,
     Collapse,
+    Container,
+    Image,
+    Stack,
+    Text,
     useDisclosure,
     useMediaQuery
   } from '@chakra-ui/react'
@@ -17,12 +21,10 @@ function MainComponent(props) {
 
     const { getDisclosureProps, isOpen } = useDisclosure()
 
-    console.log(toggle)
-
 
   return (
     <>
-        <div style={{height: "1000vh"}}></div>
+        
         
         <motion.div
         {...getDisclosureProps()}
@@ -30,10 +32,9 @@ function MainComponent(props) {
         initial={toggle}
         onAnimationStart={() => setShow(toggle)}
         onAnimationComplete={() => setShow(!isOpen)}
-        animate={{ width: toggle & isMobile ? '80vw' : '100vw', duration: 3 }}
+        delay={'1s'}
+        animate={{ width: toggle & isMobile ? '80vw' : '100vw'}}
         style={{
-          background: 'red',
-          overflow: 'hidden',
           whiteSpace: 'nowrap',
           position: 'absolute',
           right: '0',
@@ -42,26 +43,58 @@ function MainComponent(props) {
           zIndex: '-1'
         }}
       >
-        <Box 
-            w={'full'} 
-            h={'100vh'} 
-            backgroundImage={'/images/header.jpg'} 
-            backgroundPosition={'bottom'} 
-            backgroundSize={'cover'}
-            backgroundRepeat={'no-repeat'}
-            zIndex={'-1'}
-        >
-          End of header image
-        </Box>
-        <Box h={'100vh' }zIndex={'-1'}>
-          Test2
-        </Box>
-        <Box h={'100vh'}>
-          Test3
-        </Box>
+        <InsideContent />
       </motion.div>
     </>
+    
   );
+}
+
+function AboutSection() {
+  return (
+    <>
+    <Stack direction={['column', 'row']}>
+      <Image
+        // borderRadius={'full'}
+        height={'md'}
+        // boxSize={'150px'}
+        src='/images/headshot.JPG'
+        alt='William Silberstein'
+      />
+      <Box overflowWrap={'normal'}>
+        <Text>
+        laksjdflaj sdl;f jas;ldfj l;kas djflk;asj dfl;kaj sd;lkf jas;lkgaksdjlfh vljkasjllkv asld kajchv ashdas dfl as;dkf ;askd flas dklas vlkslfkj sadlkfjal;svj lkasjdf lsdaj fl
+        </Text>
+      </Box>
+
+    </Stack>
+    </>
+  )
+}
+
+function InsideContent() {
+    return (
+      <>
+        <Box 
+          w={'full'} 
+          h={'100vh'} 
+          backgroundImage={'/images/header.jpg'} 
+          backgroundPosition={'bottom'} 
+          backgroundSize={'cover'}
+          backgroundRepeat={'no-repeat'}
+          zIndex={'-1'}
+        >
+        </Box>
+        <AboutSection />
+        <Box h={'100vh'} zIndex={'-1'} backgroundColor={'green.400'}>
+          <Text>
+            TESTING
+          </Text>
+          Test3
+        </Box>
+      </>
+      
+    )
 }
 
 export default MainComponent;

@@ -55,7 +55,7 @@ function NavBarTop(props) {
 
 function DesktopNav({nav_pages}) {
     return (
-        <Box p={2}  boxShadow={'0px 2px 10px 1px'} bgGradient='linear(to-r, gray.800, gray.700)'>
+        <Box p={2}  boxShadow={'0px 2px 10px 1px'} bgGradient='linear(to-r, gray.800, gray.700)' style={{'zIndex': -2}}>
             <HStack direction={'column'} justifyContent={'center'}>
             {nav_pages.map(page => (
                 <Button

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
@@ -13,25 +13,42 @@ import {
   Text,
   useDisclosure,
   HStack,
+  useMediaQuery
 } from '@chakra-ui/react'
+
+import { motion } from 'framer-motion'
 
 function NavBarTop(props) {
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [show, setShow] = useState(props.toggle)
+    const [isMobile] = useMediaQuery("(min-width: 768px)")
+    const { getDisclosureProps, isOpen } = useDisclosure()
+
+    const toggle = props.toggle
+    
 
     const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
 
-    useEffect(() => {
-        if(props.toggle)
-            onOpen()
-        else
-            onClose()
-    })
+    console.log(isOpen)
 
     return (
         <>
-        <Show above={'md'}>
-            <Slide direction='left' in={isOpen}>
+            <motion.div
+                {...getDisclosureProps()}
+                hidden={false}
+                initial={!toggle}
+                onAnimationStart={() => setShow(!toggle)}
+                onAnimationComplete={() => setShow(!isOpen)}
+                animate={{ width: props.toggle & isMobile ? '20vw' : '0'}}
+                style={{
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    position: 'fixed',
+                    height: '100vh',
+                    top: '0',
+                    zIndex: '1'
+                }}
+            >
                 <Box 
                     display={'flex'}
                     flexDirection={'column'}
@@ -40,7 +57,7 @@ function NavBarTop(props) {
                 >
                     <Box
                         backgroundColor={'gray.800'}
-                        w={'20%'}
+                        // w={'20%'}
                         h={'full'}
                         justifyContent={'center'}
                     >
@@ -126,14 +143,9 @@ function NavBarTop(props) {
                                 wsilberstein@wustl.edu
                             </Text>
                         </Stack>
-
-                        
                     </Box>
                 </Box>
-                
-            </Slide>
-        </Show>
-        
+            </motion.div>        
         </>
     );
 }
