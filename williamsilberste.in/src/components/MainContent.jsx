@@ -8,6 +8,8 @@ import { motion } from 'framer-motion'
 
 import AboutSection from './AboutSection'
 import ExperienceSection from './ExperienceSection';
+import EducationSection from './EducationSection';
+import ProjectsSection from './ProjectsSection';
 
 function MainComponent(props) {
 
@@ -56,6 +58,9 @@ function InsideContent() {
         </Box>
         <AboutSection />
         <ExperienceSection />
+        <EducationSection />
+        <ProjectsSection />
+
         <Box h={'200vh'}></Box>
       </>
       

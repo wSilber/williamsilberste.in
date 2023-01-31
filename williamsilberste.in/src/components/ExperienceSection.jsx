@@ -9,13 +9,6 @@ import {
     VStack,
   } from '@chakra-ui/react'
 
-const about_me_text = `
-
-  My name is William Silberstein and I am currently completing two degrees in Computer Engineering and Computer Science at Washington University in St. Louis.
-  I have a passion for building software, particularly in building backend systems and networking solutions.
-
-`
-
 const experiences = {
     rithmic: {
         logo: '/images/rithmic-logo.png',
@@ -81,6 +74,7 @@ function ExperienceBox({experience}) {
                 <Image
                     src={experience? experience.logo : ''}
                     alt='Rithmic, LLC Logo'
+                    w={{ base: '300px', sm: '200px' }}
                 />
 
                 <VStack

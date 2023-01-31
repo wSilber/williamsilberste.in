@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    AspectRatio,
     Box,
     Button,
     Heading,
@@ -27,18 +28,22 @@ function AboutSection() {
         margin={'3'}
       >
         <Stack 
-          direction={['column', 'row']} 
+          direction={['column', 'column', 'column', 'row', 'row' ]} 
           w={'full'} 
           p={'4'} 
           maxW={'full'}
           spacing={'10'}
         >
+          <AspectRatio 
+          minW={'sm'}>
           <Image
             borderRadius={'full'}
-            height={'md'}
+            objectFit='cover'       
             src='/images/headshot.JPG'
             alt='William Silberstein'
           />
+          </AspectRatio>
+
   
           <Box w={'full'} whiteSpace={'normal'}>
             <Heading pb={'10'} whiteSpace={'normal'}>About Me</Heading>

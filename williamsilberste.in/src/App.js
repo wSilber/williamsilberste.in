@@ -10,10 +10,10 @@ const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Cont
 
 function App() {
 
-  const ref = useRef(null);
+  const toggleRef = useRef(null);
 
   const { inViewport } = useInViewport(
-      ref,
+      toggleRef,
       { disconnectOnLeave: false },
       {}
   )
@@ -23,7 +23,7 @@ function App() {
       <NavBarTop nav_pages={nav_pages} toggle={inViewport}/>
       <NavBarSide nav_pages={nav_pages} toggle={!inViewport} />
       {/* <WaveAnimation /> */}
-      <div ref={ref} style={{position: 'absolute', zIndex: -10, height: '50vh', borderBottom: '1px solid black'}}>Test</div>
+      <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh', borderBottom: '1px solid black'}}>Test</div>
       <MainComponent toggle={!inViewport}/>
     </>
   );
