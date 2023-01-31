@@ -13,7 +13,6 @@ import {
     Text,
     Wrap,
     WrapItem,
-    VStack,
   } from '@chakra-ui/react'
 
 const projects = {
