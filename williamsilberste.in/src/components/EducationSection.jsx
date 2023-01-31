@@ -75,7 +75,7 @@ function EducationSection() {
                 <Image
                     src={education? education.logo : ''}
                     w={{ base: '300px', sm: '200px' }}
-                    alt='Rithmic, LLC Logo'
+                    alt={education? education.title : ''}
                 />
 
                 <VStack
@@ -99,37 +99,5 @@ function EducationSection() {
           </Box>
     )
 }
-
-// function EducationBox({education}) {
-
-//     return (
-//         <Card maxW='sm' backgroundColor={'gray.200'} boxShadow={'dark-lg'}>
-//         <CardBody>
-//             <Center>
-//             <Image
-//                 src={education.logo}
-//                 alt='WashU Education Image'
-//             />
-//             </Center>
-
-//             <Stack mt='6' spacing='3'>
-//             <Heading size='md'>{education.title}</Heading>
-//             <Text whiteSpace={'normal'}>
-//                 {education.text}
-//             </Text>
-//             <Text color='gray.800' fontSize='2xl'>
-//                 {education.date}
-//             </Text>
-//             </Stack>
-//         </CardBody>
-//         <Divider />
-//         <CardFooter>
-//             <Button variant='solid' backgroundColor={'gray.800'} color={'gray.300'}>
-//                 Learn More
-//             </Button>
-//         </CardFooter>
-//         </Card>
-//     )
-// }
 
 export default EducationSection;

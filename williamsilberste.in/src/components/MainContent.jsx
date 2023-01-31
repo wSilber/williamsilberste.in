@@ -10,6 +10,7 @@ import AboutSection from './AboutSection'
 import ExperienceSection from './ExperienceSection';
 import EducationSection from './EducationSection';
 import ProjectsSection from './ProjectsSection';
+import Footer from './Footer';
 
 function MainComponent(props) {
 
@@ -60,8 +61,7 @@ function InsideContent() {
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />
-
-        <Box h={'200vh'}></Box>
+        <Footer />
       </>
       
     )

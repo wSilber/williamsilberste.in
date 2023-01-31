@@ -97,6 +97,7 @@ function NavBarTop(props) {
                                     borderBottom: '2px',
                                     borderBottomColor: 'gray.50'
                                 }}>
+                                
                                 {page}
                             </Button>
                         ))}

@@ -73,7 +73,7 @@ function ExperienceBox({experience}) {
             >
                 <Image
                     src={experience? experience.logo : ''}
-                    alt='Rithmic, LLC Logo'
+                    alt={experience? experience.title : ''}
                     w={{ base: '300px', sm: '200px' }}
                 />
 

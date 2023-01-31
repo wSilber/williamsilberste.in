@@ -17,29 +17,25 @@ import {
   } from '@chakra-ui/react'
 
 const projects = {
-    washU: {
-        logo: '/images/washULogo.png',
-        title: 'Washington University in St. Louis',
-        text : 'test',
-        date : '2019 - 2023'
+    todoapp: {
+        logo: '/images/todo-app.PNG',
+        title: 'Todo Application',
+        text : 'A decentralized todo application that interacts with the Ethereum blockchain.',
     },
-    test1: {
-        logo: '/images/greeleyLogo.png',
-        title: 'Horace Greeley High School',
-        text : 'Test',
-        date : '2015 - 2019'
+    snitherio: {
+        logo: '/images/snitherio.png',
+        title: 'Snither.io',
+        text : 'A recreation of the popular multiplayer game Slither.io',
     },
-    test: {
-      logo: '/images/washULogo.png',
-      title: 'Washington University in St. Louis',
-      text : 'test',
-      date : '2019 - 2023'
+    add: {
+        logo:'/images/add.png',
+        title: 'Audio Digitizing Device',
+        text : 'An audio digitizer capable of converting analog/digital audio signals to and from external devices.'
     },
-    test2: {
-        logo: '/images/greeleyLogo.png',
-        title: 'Horace Greeley High School',
-        text : 'Test',
-        date : '2015 - 2019'
+    chatroom: {
+      logo: '/images/chatroom.png',
+      title: 'Chatroom',
+      text : 'An iteractive and realtime chat service.',
     },
 
 }
@@ -51,23 +47,17 @@ function ProjectsSection() {
 
       <Box 
         borderRadius={'2xl'} 
-        // backgroundColor={'gray.300'}
         whiteSpace={'normal'}
         margin={'3'}
       >
         <Center>
-            <Heading pt={'10'} whiteSpace={'normal'}>Education</Heading>
+            <Heading pt={'10'} whiteSpace={'normal'}>Projects</Heading>
         </Center>
         <Wrap
           w={'full'} 
           p={'4'} 
-          // maxW={'full'}
           spacing={'10'}
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          // align={'center'}
-          // direction={['column', 'column', 'row']}
+          justify={'center'}
 
         >
             {
@@ -85,18 +75,17 @@ function ProjectsSection() {
 function ProjectBox({project}) {
 
     return (
-      <WrapItem>
-<Card w='md' backgroundColor={'gray.200'} boxShadow={'dark-lg'} minW={'40%'}>
-        <CardBody>
+      <WrapItem id='Projects' display={'flex'} justifyContent={'center'} alignItems={'center'} maxW={{lg: '25%', md: '35%', sm: '40%', base : '100%'}}>
+        <Card w='md' backgroundColor={'gray.200'} boxShadow={['md', '2xl']} height={{md: '450px', sm: '450px', base: '450px'}}>
+        <CardBody p={0}>
             <Center>
-            <Image
-                src={project.logo}
-                alt='WashU Education Image'
-                w={{ base: '300px', sm: '200px' }}
-            />
+              <Image
+                  src={project.logo}
+                  alt={project.title}
+                  w={'full'}
+              />
             </Center>
-
-            <Stack mt='6' spacing='3'>
+            <Stack mt='6' spacing='3' p={5}>
             <Heading size='md'>{project.title}</Heading>
             <Text whiteSpace={'normal'}>
                 {project.text}
