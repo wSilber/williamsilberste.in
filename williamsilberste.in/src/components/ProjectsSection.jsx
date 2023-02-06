@@ -13,18 +13,43 @@ import {
     Text,
     Wrap,
     WrapItem,
+    useDisclosure
   } from '@chakra-ui/react'
+
+import ProjectModal from './ProjectModal';
 
 const projects = {
     todoapp: {
         logo: '/images/todo-app.PNG',
         title: 'Todo Application',
         text : 'A decentralized todo application that interacts with the Ethereum blockchain.',
+        textLong : <p>The Todo dapp allows users to easily manage all of their personal
+                    todos and tasks. By utilizing blockchain technology, users are
+                    forced to complete their task or risk losing a deposite. Think of
+                    it as a task manager for major procrascinators :).<br></br><br></br>
+        
+                    All tasks are publicly stored on the ethereum blockchain (ropsten testnet). 
+                    Users have the option to lock in ethereum with each task. This ethereum is 
+                    then returned to the user with extra tokens when the task is completed. Users 
+                    who do not complete their tasks in time lose their deposit and do not receive 
+                    tokens. This helps to motivate users who struggle with procrastinating with 
+                    getting their tasks done.</p>,
+        link: 'https://github.com/wSilber/Todo-App'
     },
     snitherio: {
         logo: '/images/snitherio.png',
         title: 'Snither.io',
         text : 'A recreation of the popular multiplayer game Slither.io',
+        textLong: <p>Snither.io is a remake of the popular online multiplayer game Sliter.io. Users
+                  can compete for the highest score by consuming food and other players. The game 
+                  features an account system so that players can save their progress and view the
+                  top scores of others. <br></br><br></br>
+
+                  This project was created as my final project for WashU's CSE 330, a class that
+                  focusses on backend server development. By combining a lightweight express server with
+                  socket listeners, the game can easily communicate the game state to the player/server.
+                  One of the biggest challenges when creating this game was to stop playing it.</p>,
+        link: 'https://github.com/wSilber/snither.io'
     },
     add: {
         logo:'/images/add.png',
@@ -48,6 +73,7 @@ function ProjectsSection() {
         borderRadius={'2xl'} 
         whiteSpace={'normal'}
         margin={'3'}
+        id={'Projects'}
       >
         <Center>
             <Heading pt={'10'} whiteSpace={'normal'}>Projects</Heading>
@@ -71,11 +97,30 @@ function ProjectsSection() {
     )
   }
 
+
+
 function ProjectBox({project}) {
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
-      <WrapItem id='Projects' display={'flex'} justifyContent={'center'} alignItems={'center'} maxW={{lg: '25%', md: '35%', sm: '40%', base : '100%'}}>
-        <Card w='md' backgroundColor={'gray.200'} boxShadow={['md', '2xl']} height={{md: '450px', sm: '450px', base: '450px'}}>
+      <WrapItem 
+        id='Projects' 
+        display={'flex'} 
+        justifyContent={'center'} 
+        alignItems={'center'} 
+        maxW={{lg: '25%', md: '35%', sm: '40%', base : '100%'}}
+        minW={'300px'}
+        transform={'scale(1)'}
+        transition={'.5s'}
+        _hover={{
+          transform: 'scale(1.1)',
+          cursor: 'pointer'
+        }}
+        onClick={onOpen}
+      >
+        <ProjectModal project={project} isOpen={isOpen} onClose={onClose} />
+        <Card maxW={'md'} backgroundColor={'gray.200'} boxShadow={['md', '2xl']} height={{md: '450px', sm: '450px', base: '450px'}}>
         <CardBody p={0}>
             <Center>
               <Image

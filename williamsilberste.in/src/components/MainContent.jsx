@@ -6,7 +6,6 @@ import {
 
 import { motion } from 'framer-motion'
 
-import WaveAnimation from './WaveAnimation';
 import AboutSection from './AboutSection'
 import ExperienceSection from './ExperienceSection';
 import EducationSection from './EducationSection';
@@ -35,7 +34,7 @@ function MainComponent(props) {
           right: '0',
           height: '100vh',
           top: '0',
-          zIndex: '-1'
+          zIndex: '-1',
         }}
       >
         <InsideContent />
@@ -51,13 +50,8 @@ function InsideContent() {
         <Box 
           w={'full'} 
           h={'100vh'} 
-          // backgroundImage={'/images/header.jpg'} 
-          // backgroundPosition={'bottom'} 
-          // backgroundSize={'cover'}
-          // backgroundRepeat={'no-repeat'}
           zIndex={'-1'}
         >
-          <WaveAnimation />
         </Box>
         <AboutSection />
         <ExperienceSection />

@@ -33,6 +33,7 @@ function EducationSection() {
         backgroundColor={'gray.300'}
         whiteSpace={'normal'}
         margin={'3'}
+        id={'Education'}
       >
         <Center>
             <Heading pt={'10'} whiteSpace={'normal'}>Education</Heading>
@@ -62,6 +63,12 @@ function EducationSection() {
             borderRadius={'2xl'}
             backgroundColor={'gray.800'}
             w={'full'}
+            transform={'scale(1)'}
+            transition={'.5s'}
+            _hover={{
+                transform: 'scale(1.02)',
+                cursor: 'pointer'
+            }}
           >
             <Stack 
                 direction={['column', 'row']} 

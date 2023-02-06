@@ -32,6 +32,7 @@ function ExperienceSection() {
         borderRadius={'2xl'} 
         backgroundColor={'gray.300'}
         margin={'3'}
+        id={'Experience'}
       >
         <Center>
         <Heading pt={'10'} whiteSpace={'normal'}>Experiences</Heading>
@@ -61,6 +62,12 @@ function ExperienceBox({experience}) {
             borderRadius={'2xl'}
             backgroundColor={'gray.800'}
             w={'full'}
+            transform={'scale(1)'}
+            transition={'.5s'}
+            _hover={{
+                transform: 'scale(1.02)',
+                cursor: 'pointer'
+            }}
           >
             <Stack 
                 direction={['column', 'row']} 

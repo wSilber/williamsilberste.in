@@ -26,6 +26,7 @@ function AboutSection() {
         borderColor={'gray.700'} 
         backgroundColor={'gray.0'}
         margin={'3'}
+        id={'About'}
       >
         <Stack 
           direction={['column', 'column', 'column', 'row', 'row' ]} 

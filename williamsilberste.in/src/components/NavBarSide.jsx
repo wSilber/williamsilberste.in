@@ -36,7 +36,7 @@ function NavBarTop(props) {
                     position: 'fixed',
                     height: '100vh',
                     top: '0',
-                    zIndex: '1'
+                    zIndex: '1',
                 }}
             >
                 <Box 
@@ -92,13 +92,24 @@ function NavBarTop(props) {
                                 color={'gray.300'}
                                 fontSize={'md'}
                                 width={'50%'} 
+                                href={`#${page}`}
+                                p={0}           
                                 _hover={{
                                     color: 'gray.50',
                                     borderBottom: '2px',
                                     borderBottomColor: 'gray.50'
                                 }}>
-                                
+                                <Link 
+                                    href={`#${page}`} 
+                                    w={'full'} 
+                                    textDecoration={'none'}
+                                    _hover={{
+                                        textDecoration: 'none'
+                                    }}
+                                >
                                 {page}
+                                </Link>
+                                
                             </Button>
                         ))}
                         <Spacer />

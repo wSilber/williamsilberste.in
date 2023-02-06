@@ -69,7 +69,16 @@ function DesktopNav({nav_pages}) {
                         borderBottom: '2px',
                         borderBottomColor: 'gray.50'
                         }}>
-                    {page}
+                    <Link 
+                        href={`#${page}`} 
+                        w={'full'} 
+                        textDecoration={'none'}
+                        _hover={{
+                            textDecoration: 'none'
+                        }}
+                    >
+                        {page}
+                    </Link>
                 </Button>
             ))}
             </HStack>
@@ -178,7 +187,16 @@ function MobileNav({nav_pages}) {
                                 borderBottom: '2px',
                                 borderBottomColor: 'gray.50'
                             }}>
-                            {page}
+                            <Link 
+                                href={`#${page}`} 
+                                w={'full'} 
+                                textDecoration={'none'}
+                                _hover={{
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                {page}
+                            </Link>
                         </Button>
                     ))}
                     <Spacer />

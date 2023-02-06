@@ -13,7 +13,7 @@ function Footer() {
 
     return (
         <>
-        <Box h={'20vh'} backgroundColor={'gray.800'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
+        <Box h={'20vh'} backgroundColor={'gray.800'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'} id='Contact'>
         <HStack justifyContent={'center'}>
             <Link 
                 href='https://www.linkedin.com/in/william-silberstein/'

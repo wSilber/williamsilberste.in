@@ -12,7 +12,7 @@ import {
 function WaveAnimation() {
 
   return (
-    <Canvas>
+    <Canvas style={{height: '100vh', position: 'absolute', zIndex: -1}}>
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[0, 0, 5]} />
         <mesh>
