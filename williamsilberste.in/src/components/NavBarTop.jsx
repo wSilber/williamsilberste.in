@@ -197,6 +197,7 @@ function MobileNav({nav_pages}) {
                             _hover={{
                                 textDecoration: 'none'
                             }}
+                            onClick={onClose}
                             p={0}
                         >
                         {page}

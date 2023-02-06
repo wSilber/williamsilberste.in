@@ -23,6 +23,8 @@ function NavBarTop(props) {
 
     const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
 
+    const loaded = props.loaded
+
     return (
         <>
             <motion.div
@@ -38,6 +40,7 @@ function NavBarTop(props) {
                     height: '100vh',
                     top: '0',
                     zIndex: '1',
+                    visibility: loaded? 'visible' : 'hidden'
                 }}
             >
                 <Box 

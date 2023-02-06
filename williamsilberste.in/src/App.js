@@ -1,10 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInViewport } from 'react-in-viewport';
+
+import {
+  Box
+} from '@chakra-ui/react'
 
 import NavBarTop from './components/NavBarTop'
 import NavBarSide from './components/NavBarSide'
 import MainComponent from './components/MainContent';
-import WaveAnimation from './components/WaveAnimation';
+import WaveCanvas from './components/WaveAnimation';
 
 const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
 
@@ -12,6 +16,7 @@ const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Cont
 function App() {
 
   const toggleRef = useRef(null);
+  const [loaded, setLoaded] = useState(false)
 
   const { inViewport } = useInViewport(
       toggleRef,
@@ -19,14 +24,39 @@ function App() {
       {}
   )
 
+  useEffect(() => {
+    const onPageLoad = () => {
+      window.setTimeout(() => {
+        setLoaded(true)
+      }, 500)
+
+    }
+  
+
+  if (document.readyState === 'complete') {
+    onPageLoad();
+  } else {
+    window.addEventListener('load', onPageLoad);
+    // Remove the event listener when component unmounts
+    return () => window.removeEventListener('load', onPageLoad);
+  }
+}, []);
+
+console.log(loaded)
+var visibilityState = loaded ? "visible" : "hidden";
+
   return (
     <>
-      <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/>
-      <NavBarSide nav_pages={nav_pages} toggle={!inViewport} style={{behavior: 'smooth'}}/>
-      <WaveAnimation />
+      <WaveCanvas loaded={loaded} />
+      <Box>
+        <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/>
+        <NavBarSide nav_pages={nav_pages} toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
+        
+        
+        <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh'}} id='Home'>Test</div>
+        <MainComponent toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
+      </Box>
       
-      <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh'}} id='Home'>Test</div>
-      <MainComponent toggle={!inViewport} style={{behavior: 'smooth'}}/>
     </>
   );
 }

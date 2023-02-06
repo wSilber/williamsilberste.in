@@ -15,6 +15,7 @@ import Footer from './Footer';
 function MainComponent(props) {
 
     const toggle = props.toggle
+    const loaded = props.loaded
 
     const [show, setShow] = useState(props.toggle)
     const [isMobile] = useMediaQuery("(min-width: 768px)")
@@ -35,6 +36,7 @@ function MainComponent(props) {
           height: '100vh',
           top: '0',
           zIndex: '-1',
+          visibility: loaded? 'visible' : 'hidden'
         }}
       >
         <InsideContent />
