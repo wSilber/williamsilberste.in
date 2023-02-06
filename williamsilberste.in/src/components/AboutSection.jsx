@@ -6,6 +6,7 @@ import {
     Heading,
     Highlight,
     Image,
+    Link,
     Stack,
     Text,
   } from '@chakra-ui/react'
@@ -67,16 +68,19 @@ function AboutSection() {
                 </Highlight>
             </Text>
             <br></br>
-            <Button 
-              backgroundColor={'gray.800'}
-              color={'gray.300'}
-              _hover={{
-                color: 'gray.50',
-                backgroundColor: 'gray.500'
-              }}
-            >
-              Contact
-            </Button>
+            <Link href={'#Contact'}>
+              <Button 
+                backgroundColor={'gray.800'}
+                color={'gray.300'}
+                _hover={{
+                  color: 'gray.50',
+                  backgroundColor: 'gray.500'
+                }}
+              >
+                Contact
+              </Button>
+            </Link>
+
           </Box>
           
   

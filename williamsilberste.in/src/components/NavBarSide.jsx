@@ -5,6 +5,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import {
   Button,
   Box,
+  Image,
   Link,
   Spacer,
   Stack,
@@ -63,9 +64,10 @@ function NavBarTop(props) {
                             alignContent={'center'}
                             flexDirection={'column'}
                             textAlign={'center'}
-
+                            p={5}
                             >
-                                <Text   
+                                <Image src="/images/logo-no-background.svg" maxW={'90%'} alignSelf={'center'}></Image>
+                                {/* <Text   
                                     backgroundColor={'gray.800'}
                                     color={'gray.50'}
                                     fontSize={'lg'}
@@ -82,7 +84,7 @@ function NavBarTop(props) {
                                     fontSize={'sm'}
                                 >
                                     Personal Website
-                                </Text>
+                                </Text> */}
                             </Box>
                         {nav_pages.map(page => (
                             <Button

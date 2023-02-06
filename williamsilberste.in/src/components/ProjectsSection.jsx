@@ -23,7 +23,7 @@ const projects = {
         logo: '/images/todo-app.PNG',
         title: 'Todo Application',
         text : 'A decentralized todo application that interacts with the Ethereum blockchain.',
-        textLong : <p>The Todo dapp allows users to easily manage all of their personal
+        textLong : <>The Todo dapp allows users to easily manage all of their personal
                     todos and tasks. By utilizing blockchain technology, users are
                     forced to complete their task or risk losing a deposite. Think of
                     it as a task manager for major procrascinators :).<br></br><br></br>
@@ -33,14 +33,14 @@ const projects = {
                     then returned to the user with extra tokens when the task is completed. Users 
                     who do not complete their tasks in time lose their deposit and do not receive 
                     tokens. This helps to motivate users who struggle with procrastinating with 
-                    getting their tasks done.</p>,
+                    getting their tasks done.</>,
         link: 'https://github.com/wSilber/Todo-App'
     },
     snitherio: {
         logo: '/images/snitherio.png',
         title: 'Snither.io',
         text : 'A recreation of the popular multiplayer game Slither.io',
-        textLong: <p>Snither.io is a remake of the popular online multiplayer game Sliter.io. Users
+        textLong: <>Snither.io is a remake of the popular online multiplayer game Sliter.io. Users
                   can compete for the highest score by consuming food and other players. The game 
                   features an account system so that players can save their progress and view the
                   top scores of others. <br></br><br></br>
@@ -48,18 +48,34 @@ const projects = {
                   This project was created as my final project for WashU's CSE 330, a class that
                   focusses on backend server development. By combining a lightweight express server with
                   socket listeners, the game can easily communicate the game state to the player/server.
-                  One of the biggest challenges when creating this game was to stop playing it.</p>,
+                  One of the biggest challenges when creating this game was to stop playing it.</>,
         link: 'https://github.com/wSilber/snither.io'
     },
     add: {
         logo:'/images/add.png',
         title: 'Audio Digitizing Device',
-        text : 'An audio digitizer capable of converting analog/digital audio signals to and from external devices.'
+        text : 'An audio digitizer capable of converting analog/digital audio signals to and from external devices.',
+        textLong: <>The Audio Digitizing Divice (Richarduino v4) is a system for converting audio to and from
+                  digital and analog systems. The divice was developed as an education project, but can be used
+                  as a microphone as well as a digital synthesizer. <br></br><br></br>
+
+                  The goal of this project was to learn the entire building process for embedded systems, from
+                  designing the microprocessor to soldering the integrated circuits. Everything was designed from 
+                  scratch including a 32 bit microcontroller on a Xilinx FPGA, a two way communication channel using 
+                  the I2C and UART protocol, and writing a custom assembly program to allow for the recording of 
+                  audio through a microphone.</>,
+        link: '/res/richarduino'
     },
     chatroom: {
       logo: '/images/chatroom.png',
       title: 'Chatroom',
       text : 'An iteractive and realtime chat service.',
+      textLong: <>The chat application is a website that allows for real time communication. Users can choose to either
+                sign up for an account, or choose to remain anonymous. The application also features public and private
+                rooms to allow for users to chat in their own separate room. This project was made using a javascript backend
+                server with a socket library to allow for seamless communication between the user and the server.
+                </>,
+      link: 'https://github.com/wSilber/Chat-Application'
     },
 
 }

@@ -172,32 +172,37 @@ function MobileNav({nav_pages}) {
                         alignItems={'center'} 
                         justifyContent={'center'}
                         h={'full'}
+                        p={0}
                     >
                         
                     {nav_pages.map(page => (
                         <Button
-                            key={page}
-                            backgroundColor={'gray.800'}
-                            borderRadius={'none'}
-                            color={'gray.300'}
-                            fontSize={'xl'}
-                            width={'50%'} 
+                        key={page}
+                        backgroundColor={'gray.800'}
+                        borderRadius={'none'}
+                        color={'gray.300'}
+                        fontSize={'md'}
+                        width={'50%'} 
+                        href={`#${page}`}
+                        p={0}           
+                        _hover={{
+                            color: 'gray.50',
+                            borderBottom: '2px',
+                            borderBottomColor: 'gray.50'
+                        }}>
+                        <Link 
+                            href={`#${page}`} 
+                            w={'full'} 
+                            textDecoration={'none'}
                             _hover={{
-                                color: 'gray.50',
-                                borderBottom: '2px',
-                                borderBottomColor: 'gray.50'
-                            }}>
-                            <Link 
-                                href={`#${page}`} 
-                                w={'full'} 
-                                textDecoration={'none'}
-                                _hover={{
-                                    textDecoration: 'none'
-                                }}
-                            >
-                                {page}
-                            </Link>
-                        </Button>
+                                textDecoration: 'none'
+                            }}
+                            p={0}
+                        >
+                        {page}
+                        </Link>
+                        
+                    </Button>
                     ))}
                     <Spacer />
                         <HStack justifyContent={'center'}>
