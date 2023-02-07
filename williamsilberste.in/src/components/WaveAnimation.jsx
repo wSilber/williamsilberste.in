@@ -34,10 +34,6 @@ function WaveAnimation({rows = 100, cols = 100}) {
     return new BufferAttribute(new Float32Array(vertices), 3)
   }, [rows, cols])
 
-  // useFrame(({clock}) => {
-  //     console.log(clock.getElapsedTime())
-  // })
-
   return (
     <>
       <Canvas style={{height: '100vh', position: 'absolute', zIndex: -1}}>

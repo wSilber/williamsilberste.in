@@ -3,11 +3,11 @@ html {
 }
 
 canvas {
-    position: fixed;
-    /* width: 100vw;
-    height: 100vh; */
+    position: absolute;
     z-index: -10;
 }
+
+/* ---------------- Scroll Text Animation ---------------- */
 
 #scroll-text {
     animation-name: scroll-text;
@@ -21,3 +21,39 @@ canvas {
     50%    {bottom: 30px;}
     100%   {bottom: 10px;}
 } 
+
+/* ---------------- Header Text Animation ---------------- */
+
+.header-text {
+    position: relative;
+    color: hsl(0, 0%, 68%);
+    /* font-weight: bold !important;
+    font-family: "Anonymous Pro", monospace !important;
+    letter-spacing: 7px !important; */
+    /* font-size: xx-large; */
+    overflow: hidden;
+    border-right: 2px solid hsl(0, 0%, 80%);
+    white-space: nowrap;
+    animation: typewriter 2s steps(40) 1s 1 normal both, 
+               blinkTextCursor 500ms 10;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 10ch;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: hsl(0, 0%, 80%);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}

@@ -10,6 +10,7 @@ import NavBarTop from './components/NavBarTop'
 import NavBarSide from './components/NavBarSide'
 import MainComponent from './components/MainContent';
 import WaveCanvas from './components/WaveAnimation';
+import HomeSection from './components/HomeSection';
 
 const nav_pages = ['Home', 'About', 'Experience', 'Education', 'Projects', 'Contact'];
 
@@ -49,13 +50,14 @@ var visibilityState = loaded ? "visible" : "hidden";
   return (
     <>
       <WaveCanvas loaded={loaded} />
+      <HomeSection />
       <ScrollText />
       <Box>
-        <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/>
+        {/* <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/> */}
         <NavBarSide nav_pages={nav_pages} toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
         
         
-        <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh'}} id='Home'>Test</div>
+        <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh'}} id='Home'></div>
         <MainComponent toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
       </Box>
       
