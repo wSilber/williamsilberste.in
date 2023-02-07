@@ -33,6 +33,7 @@ function NavBarTop(props) {
                 onAnimationStart={() => setShow(!show)}
                 onAnimationComplete={() => setShow(!show)}
                 animate={{ width: props.toggle & isMobile ? '20vw' : '0'}}
+                transition={'linear'}
                 style={{
                     overflow: 'hidden',
                     whiteSpace: 'nowrap',

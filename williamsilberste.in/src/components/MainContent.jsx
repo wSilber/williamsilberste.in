@@ -28,6 +28,7 @@ function MainComponent(props) {
         onAnimationStart={() => setShow(show)}
         onAnimationComplete={() => setShow(!show)}
         delay={'1s'}
+        transition={'linear'}
         animate={{ width: toggle & isMobile ? '80vw' : '100vw'}}
         style={{
           whiteSpace: 'nowrap',
