@@ -15,10 +15,8 @@ import {BufferAttribute } from 'three'
 // let   change_speed     = 0
 
 const distance         = 10
-const rows             = 50
-const cols             = 50
 
-function WaveAnimation({rows = 50, cols = 50}) {
+function WaveAnimation({rows = 100, cols = 100}) {
 
   const vertice_positions = useMemo(() => {
 
@@ -43,7 +41,7 @@ function WaveAnimation({rows = 50, cols = 50}) {
   return (
     <>
       <Canvas style={{height: '100vh', position: 'absolute', zIndex: -1}}>
-        <AnimatedWave vertice_positions={vertice_positions} />
+        <AnimatedWave vertice_positions={vertice_positions} rows={rows} cols={cols} />
       </Canvas>
       {/* <OrbitControls /> */}
     </>
@@ -51,7 +49,7 @@ function WaveAnimation({rows = 50, cols = 50}) {
   )
 }
 
-function AnimatedWave({vertice_positions}) {
+function AnimatedWave({vertice_positions, rows, cols}) {
 
   const ref = useRef()
 

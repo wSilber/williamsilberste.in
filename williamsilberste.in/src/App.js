@@ -5,6 +5,7 @@ import {
   Box
 } from '@chakra-ui/react'
 
+import ScrollText from './components/ScrollText';
 import NavBarTop from './components/NavBarTop'
 import NavBarSide from './components/NavBarSide'
 import MainComponent from './components/MainContent';
@@ -48,6 +49,7 @@ var visibilityState = loaded ? "visible" : "hidden";
   return (
     <>
       <WaveCanvas loaded={loaded} />
+      <ScrollText />
       <Box>
         <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/>
         <NavBarSide nav_pages={nav_pages} toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
