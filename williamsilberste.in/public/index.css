@@ -24,33 +24,69 @@ canvas {
 
 /* ---------------- Header Text Animation ---------------- */
 
-.header-text {
+.header-text-1 {
     position: relative;
     color: hsl(0, 0%, 68%);
-    /* font-weight: bold !important;
-    font-family: "Anonymous Pro", monospace !important;
-    letter-spacing: 7px !important; */
-    /* font-size: xx-large; */
     overflow: hidden;
-    border-right: 2px solid hsl(0, 0%, 80%);
+    border-right: 2px solid transparent;
     white-space: nowrap;
-    animation: typewriter 2s steps(40) 1s 1 normal both, 
-               blinkTextCursor 500ms 10;
+    animation: header-text-anim-1 .25s steps(40) 1s 1 normal both, 
+               blinkTextCursor 500ms 3;
 }
 
-@keyframes typewriter {
+.header-text-2 {
+    position: relative;
+    color: hsl(0, 0%, 68%);
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    white-space: nowrap;
+    animation: header-text-anim-2 2s steps(30) 1.5s 1 normal both, 
+               blinkTextCursor 500ms 2s 4;
+}
+
+.header-text-3 {
+    position: relative;
+    color: hsl(0, 0%, 68%);
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    white-space: nowrap;
+    animation: header-text-anim-3 2s steps(40) 3.75s 1 normal both, 
+               blinkTextCursor 500ms 3.75s infinite;
+}
+
+@keyframes header-text-anim-1 {
     from {
         width: 0;
     }
 
     to {
-        width: 10ch;
+        width: 2ch;
+    }
+}
+
+@keyframes header-text-anim-2 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 18.7ch;
+    }
+}
+
+@keyframes header-text-anim-3 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 27.7ch;
     }
 }
 
 @keyframes blinkTextCursor {
     from {
-        border-right-color: hsl(0, 0%, 80%);
+        border-right-color: #4A5568;
     }
 
     to {

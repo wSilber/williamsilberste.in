@@ -18,15 +18,43 @@ function HomeSection() {
           alignItems={'center'}
           justifyContent={'center'}
           h={'100vh'}
+          w={'full'}
+          position={'absolute'}
+          top={0}
+          
         >
-          <Box>
+          <Box
+            textAlign={'left'}
+          >
           <Text 
-              className={'header-text'} 
-              textAlign={'center'}
-              fontSize={'5xl'}
-              // animation={'typewriter 2s steps(44) 1s 1 normal both'}
+              lineHeight={1}
+              className={'header-text-1'} 
+              fontWeight={'bold'}
+              fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
+              textAlign={'left'}
+              color={'gray.800'}
             >
-             0123456789
+             Hi
+           </Text>
+           <Text 
+              lineHeight={1}
+              className={'header-text-2'} 
+              fontWeight={'bold'}
+              textAlign={'left'}
+              fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
+              color={'gray.800'}
+            >
+             I'm William Silberstein
+           </Text>
+           <Text 
+              lineHeight={1}
+              className={'header-text-3'} 
+              fontWeight={'bold'}
+              textAlign={'left'}
+              fontSize={{lg: '5xl', md: '4xl', sm: '2xl', base: 'xl'}}
+              color={'gray.600'}
+            >
+             Software Developer and Engineer
            </Text>
           </Box>
            

@@ -26,7 +26,8 @@ function ScrollText() {
             id="scroll-text"
             position={'absolute'}
             bottom={10}
-            fontSize={'lg'}
+            fontWeight={'bold'}
+            fontSize={{lg: '2xl', base: 'xl'}}
             style={{
                 writingMode: 'vertical-lr',
             }}

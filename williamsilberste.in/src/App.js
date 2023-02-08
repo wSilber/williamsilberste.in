@@ -53,11 +53,11 @@ var visibilityState = loaded ? "visible" : "hidden";
       <HomeSection />
       <ScrollText />
       <Box>
-        {/* <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/> */}
+        <NavBarTop nav_pages={nav_pages} toggle={inViewport} style={{behavior: 'smooth'}}/>
         <NavBarSide nav_pages={nav_pages} toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
         
         
-        <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '50vh'}} id='Home'></div>
+        <div ref={toggleRef} style={{position: 'absolute', zIndex: -10, height: '40vh'}} id='Home'></div>
         <MainComponent toggle={!inViewport} loaded={loaded} style={{behavior: 'smooth'}}/>
       </Box>
       
