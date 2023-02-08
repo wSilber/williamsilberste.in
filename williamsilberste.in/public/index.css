@@ -1,3 +1,8 @@
+@font-face {
+    font-family: header-font;
+    src: url('./res/Staatliches-Regular.ttf')
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -60,7 +65,7 @@ canvas {
     }
 
     to {
-        width: 2ch;
+        width: 2.2ch;
     }
 }
 
@@ -70,7 +75,7 @@ canvas {
     }
 
     to {
-        width: 18.7ch;
+        width: 20ch;
     }
 }
 
@@ -80,7 +85,7 @@ canvas {
     }
 
     to {
-        width: 27.7ch;
+        width: 29ch;
     }
 }
 

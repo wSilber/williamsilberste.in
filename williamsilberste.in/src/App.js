@@ -39,13 +39,11 @@ function App() {
     onPageLoad();
   } else {
     window.addEventListener('load', onPageLoad);
+
     // Remove the event listener when component unmounts
     return () => window.removeEventListener('load', onPageLoad);
   }
 }, []);
-
-console.log(loaded)
-var visibilityState = loaded ? "visible" : "hidden";
 
   return (
     <>
