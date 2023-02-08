@@ -1,6 +1,6 @@
 @font-face {
     font-family: header-font;
-    src: url('./res/Staatliches-Regular.ttf')
+    src: url('./res/OpenSans-Bold.ttf')
 }
 
 html {
@@ -85,7 +85,7 @@ canvas {
     }
 
     to {
-        width: 29ch;
+        width: 29.4ch;
     }
 }
 
