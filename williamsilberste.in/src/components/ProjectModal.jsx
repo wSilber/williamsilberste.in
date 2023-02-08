@@ -52,7 +52,7 @@ function ProjectModal({project, isOpen, onClose}) {
             </ModalBody>
 
             <ModalFooter>
-            {project.title != 'Audio Digitizing Device' && <Button variant='solid' backgroundColor={'gray.800'} color={'gray.300'} mr={3}>
+            {project.title !== 'Audio Digitizing Device' && <Button variant='solid' backgroundColor={'gray.800'} color={'gray.300'} mr={3}>
                 <Link href={project.link} isExternal>
                     Learn More
                 </Link>

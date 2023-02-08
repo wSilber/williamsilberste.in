@@ -12,7 +12,7 @@ function ScrollText() {
 
     useEffect(() => {
         setHeight(window.innerHeight)
-    })
+    }, [])
 
     console.log(height)
 

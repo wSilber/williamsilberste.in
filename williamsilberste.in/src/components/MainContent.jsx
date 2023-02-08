@@ -11,7 +11,6 @@ import ExperienceSection from './ExperienceSection';
 import EducationSection from './EducationSection';
 import ProjectsSection from './ProjectsSection';
 import Footer from './Footer';
-import HomeSection from './HomeSection';
 
 function MainComponent(props) {
 
