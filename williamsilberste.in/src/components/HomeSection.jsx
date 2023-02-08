@@ -33,7 +33,7 @@ function HomeSection() {
               fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
               textAlign={'left'}
               color={'gray.800'}
-              fontFamily={'SegoeUI'}
+              fontFamily={'-apple-system, BlinkMacSystemFont'}
             >
              Hi
            </Text>
@@ -44,7 +44,7 @@ function HomeSection() {
               textAlign={'left'}
               fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
               color={'gray.800'}
-              fontFamily={'SegoeUI'}
+              fontFamily={'-apple-system, BlinkMacSystemFont'}
             >
              I'm William Silberstein
            </Text>
@@ -55,7 +55,7 @@ function HomeSection() {
               textAlign={'left'}
               fontSize={{lg: '5xl', md: '4xl', sm: '2xl', base: 'xl'}}
               color={'gray.600'}
-              fontFamily={'SegoeUI'}
+              fontFamily={'-apple-system, BlinkMacSystemFont'}
             >
              Software Developer and Engineer
            </Text>
