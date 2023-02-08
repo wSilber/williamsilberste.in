@@ -33,7 +33,6 @@ function HomeSection() {
               fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
               textAlign={'left'}
               color={'gray.800'}
-              fontFamily={'header-font'}
             >
              Hi
            </Text>
@@ -44,7 +43,6 @@ function HomeSection() {
               textAlign={'left'}
               fontSize={{lg: '7xl', md: '6xl', sm: '5xl', base: '4xl'}}
               color={'gray.800'}
-              fontFamily={'header-font'}
             >
              I'm William Silberstein
            </Text>
@@ -55,7 +53,6 @@ function HomeSection() {
               textAlign={'left'}
               fontSize={{lg: '5xl', md: '4xl', sm: '2xl', base: 'xl'}}
               color={'gray.600'}
-              fontFamily={'header-font'}
             >
              Software Developer and Engineer
            </Text>
