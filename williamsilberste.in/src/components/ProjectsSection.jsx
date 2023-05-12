@@ -19,6 +19,21 @@ import {
 import ProjectModal from './ProjectModal';
 
 const projects = {
+    dailymuse: {
+      logo: '/images/daily_muse.png',
+      title: 'Daily Muse',
+      text: 'A social media platform where users post AI-generated images to their timelines.',
+      textLong: <>Daily Muse is a social media platform where users answer a generated prompt
+                  once a day and receive an AI-generated image. These images are then posted to
+                  the user's timeline created a collection of user responses.<br></br><br></br>
+
+                  In addition to AI-generated images, every day prompts from GPT-3.5's lanaguage 
+                  model are generated. Users then get to vote on which prompt they would like to 
+                  see for the next day. Users also have to ability to follow other users as well
+                  as like and comment on others' posts. The application was created using Next.js 
+                  with an MUI frontend library and hosted on Vercel.</>,
+      link: 'https://github.com/wSilber/DigitalMuseum'
+    },
     todoapp: {
         logo: '/images/todo-app.PNG',
         title: 'Todo Application',
@@ -64,7 +79,7 @@ const projects = {
                   scratch including a 32 bit microcontroller on a Xilinx FPGA, a two way communication channel using 
                   the I2C and UART protocol, and writing a custom assembly program to allow for the recording of 
                   audio through a microphone.</>,
-        link: '/res/richarduino'
+        link: '/res/richarduino.pdf'
     },
     chatroom: {
       logo: '/images/chatroom.png',

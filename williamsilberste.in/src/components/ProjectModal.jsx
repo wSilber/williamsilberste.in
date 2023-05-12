@@ -24,8 +24,6 @@ function ProjectModal({project, isOpen, onClose}) {
         <Modal isOpen={isOpen} onClose={onClose} size={'2xl'} p={0} isCentered>
         <ModalOverlay />
         <ModalContent p={0}>
-            {/* <ModalHeader>{project.title}</ModalHeader>
-            <ModalCloseButton /> */}
             <ModalBody p={0}>
             
             <Card >
@@ -52,11 +50,11 @@ function ProjectModal({project, isOpen, onClose}) {
             </ModalBody>
 
             <ModalFooter>
-            {project.title !== 'Audio Digitizing Device' && <Button variant='solid' backgroundColor={'gray.800'} color={'gray.300'} mr={3}>
+            <Button variant='solid' backgroundColor={'gray.800'} color={'gray.300'} mr={3}>
                 <Link href={project.link} isExternal>
                     Learn More
                 </Link>
-            </Button>}
+            </Button>
             <Button colorScheme='blue' mr={3} onClick={onClose}>
                 Close
             </Button>
