@@ -13,8 +13,12 @@ import {
 
 const about_me_text = `
 
-  My name is William Silberstein and I am currently completing two degrees in Computer Engineering and Computer Science at Washington University in St. Louis.
-  I have a passion for building software, particularly in building backend systems and networking solutions.
+  My name is William Silberstein and I have a passion for computers. Having
+  recently completed two degrees in Computer Engineering and Computer Science 
+  from Washington University in St. Louis, I have a deep understanding of the
+  systems and processes that allow machines to function. I enjoy writing code
+  and focus on developing projects that involve backend systems and networking 
+  solutions. 
 
 `
 
@@ -64,7 +68,7 @@ function AboutSection() {
                     query={['Music', 'Dogs', 'Hockey']}
                     styles={{ px: '2', py: '1', rounded: 'full', bg: 'teal.100' }}
                 >
-                    In addition to my interests in technology, I also have an interest in Music, Dogs, and Hockey.
+                    In addition to my interests in technology, I enjoy Music, Dogs, and am a former Hockey player.
                 </Highlight>
             </Text>
             <br></br>
