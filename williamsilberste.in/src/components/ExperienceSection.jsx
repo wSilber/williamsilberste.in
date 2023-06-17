@@ -18,7 +18,7 @@ const experiences = {
     washu: {
         logo: '/images/washULogo.png',
         title: 'WashU EUSS CSE Tutor',
-        date : 'Feb 2020 - Present'
+        date : 'Feb 2020 - May 2023'
     },
 
 }

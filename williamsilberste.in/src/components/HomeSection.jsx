@@ -34,7 +34,7 @@ function HomeSection() {
               textAlign={'left'}
               color={'gray.800'}
             >
-             Hi
+             Hi,
            </Text>
            <Text 
               lineHeight={1}
