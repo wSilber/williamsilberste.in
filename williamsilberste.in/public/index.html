@@ -11,7 +11,112 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+
+    <style>
+      @font-face {
+          font-family: header-font;
+          src: url('./res/OpenSans-Bold.ttf')
+      }
+
+      html {
+          scroll-behavior: smooth;
+      }
+
+      canvas {
+          position: absolute;
+          z-index: -10;
+      }
+
+      /* ---------------- Scroll Text Animation ---------------- */
+
+      #scroll-text {
+          animation-name: scroll-text;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+      }
+
+
+      @keyframes scroll-text {
+          0%     {bottom: 10px;}
+          50%    {bottom: 30px;}
+          100%   {bottom: 10px;}
+      } 
+
+      /* ---------------- Header Text Animation ---------------- */
+
+      .header-text-1 {
+          position: relative;
+          color: hsl(0, 0%, 68%);
+          overflow: hidden;
+          border-right: 2px solid transparent;
+          white-space: nowrap;
+          font-family:sans-serif;
+          animation: header-text-anim-1 .25s steps(40) 1s 1 normal both, 
+                    blinkTextCursor 500ms 3;
+      }
+
+      .header-text-2 {
+          position: relative;
+          color: hsl(0, 0%, 68%);
+          overflow: hidden;
+          border-right: 2px solid transparent;
+          white-space: nowrap;
+          font-family:sans-serif;
+          animation: header-text-anim-2 2s steps(30) 1.5s 1 normal both, 
+                    blinkTextCursor 500ms 2s 4;
+      }
+
+      .header-text-3 {
+          position: relative;
+          color: hsl(0, 0%, 68%);
+          overflow: hidden;
+          border-right: 2px solid transparent;
+          white-space: nowrap;
+          font-family:sans-serif;
+          animation: header-text-anim-3 2s steps(40) 3.75s 1 normal both, 
+                    blinkTextCursor 500ms 3.75s infinite;
+      }
+
+      @keyframes header-text-anim-1 {
+          from {
+              width: 0;
+          }
+
+          to {
+              width: 2.2ch;
+          }
+      }
+
+      @keyframes header-text-anim-2 {
+          from {
+              width: 0;
+          }
+
+          to {
+              width: 19.5ch;
+          }
+      }
+
+      @keyframes header-text-anim-3 {
+          from {
+              width: 0;
+          }
+
+          to {
+              width: 29ch;
+          }
+      }
+
+      @keyframes blinkTextCursor {
+          from {
+              border-right-color: #4A5568;
+          }
+
+          to {
+              border-right-color: transparent;
+          }
+      }
+    </style>
 
     <title>William Silberstein - Portfolio Website</title>
   </head>
