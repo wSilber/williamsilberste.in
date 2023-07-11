@@ -70,7 +70,7 @@ function NavBarTop(props) {
                             textAlign={'center'}
                             p={5}
                             >
-                                <Image src="/images/logo-no-background.svg" maxW={'90%'} alignSelf={'center'}></Image>
+                                <Image src="/images/logo-no-background.png" maxW={'90%'} alignSelf={'center'}></Image>
                                 {/* <Text   
                                     backgroundColor={'gray.800'}
                                     color={'gray.50'}

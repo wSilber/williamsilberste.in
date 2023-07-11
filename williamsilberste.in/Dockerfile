@@ -1,14 +1,15 @@
 # Build React Server
-# FROM node:16-alpine 
+FROM node:16-alpine 
 
+WORKDIR /app
+COPY . .
 
-# RUN npm ci 
-# RUN npm run build
+RUN npm ci 
+RUN npm run build
 
 # Start Production Server
 FROM nginx:1.21.0-alpine as production
-WORKDIR /app
-COPY . .
+
 ENV NODE_ENV production
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY build /usr/share/nginx/html
