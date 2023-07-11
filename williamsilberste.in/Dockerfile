@@ -1,5 +1,5 @@
 # Build React Server
-FROM node:16-alpine 
+# FROM node:16-alpine 
 
 
 # RUN npm ci 
@@ -8,8 +8,11 @@ FROM node:16-alpine
 # Start Production Server
 FROM nginx:1.21.0-alpine as production
 WORKDIR /app
-# COPY . .
+COPY . .
 ENV NODE_ENV production
-COPY --from=builder /app/build /home/ec2-user/williamsilberste.in/build
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY build /usr/share/nginx/html
+COPY /etc/letsencrypt/ /etc/letsencrypt/
+# COPY --from=builder /app/build /home/ec2-user/williamsilberste.in/build
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
