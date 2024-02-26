@@ -10,6 +10,11 @@ import {
   } from '@chakra-ui/react'
 
 const experiences = {
+    flextrade: {
+        logo: '/images/flextrade.png',
+        title: 'Associate Software Developer - Client Services',
+        date: 'Sep 2023 - Current'
+    },
     rithmic: {
         logo: '/images/rithmic-logo.png',
         title: 'Software Developer Intern | Rithmic LLC',
